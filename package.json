@@ -3,17 +3,21 @@
   "version": "0.0.2",
   "description": "Global wrapper for app packages",
   "bin": {
-    "superpack": ".dist/index.js",
-    "sp": ".dist/index.js"
+    "lord": ".dist/index.js"
   },
   "scripts": {
     "build": "tsc --outDir ./.dist index.ts",
     "npm-login-check": "npm whoami",
-    "patch": "npm version patch",
+    "git-patch": "npm version patch",
+    "git-minor": "npm version minor",
+    "git-major": "npm version major",
     "publish": "npm publish",
     "publish-check": "npm pack --dry-run",
     "git-push": "git push origin master --tags",
-    "push": "run-s build npm-login-check publish-check patch git-push"
+    "check": "run-s build npm-login-check publish-check",
+    "patch": "run-s git-patch git-push publish",
+    "minor": "run-s git-minor git-push publish",
+    "major": "run-s git-major git-push publish"
   },
   "author": "Jaspreet Singh <dev@jas.bio>",
   "license": "ISC",
