@@ -15,9 +15,9 @@
     "publish-check": "npm pack --dry-run",
     "git-push": "git push origin master --tags",
     "check": "run-s build npm-login-check publish-check",
-    "patch": "run-s git-patch git-push publish",
-    "minor": "run-s git-minor git-push publish",
-    "major": "run-s git-major git-push publish"
+    "patch": "run-s check git-patch git-push publish",
+    "minor": "run-s check git-minor git-push publish",
+    "major": "run-s check git-major git-push publish"
   },
   "author": "Jaspreet Singh <dev@jas.bio>",
   "license": "ISC",
