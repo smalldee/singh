@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-console.log(`Super Pact \u{1F9D1}`);
+console.log(`\u{1F451} Lord of Apps \u{1F451}`);
