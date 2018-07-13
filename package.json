@@ -13,7 +13,7 @@
     "publish": "npm publish",
     "publish-check": "npm pack --dry-run",
     "git-push": "git push origin master --tags",
-    "push": "run-s build npm-login-check publish-check patch publish git-push"
+    "push": "run-s build npm-login-check publish-check patch git-push"
   },
   "author": "Jaspreet Singh <dev@jas.bio>",
   "license": "ISC",
