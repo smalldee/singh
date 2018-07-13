@@ -6,18 +6,15 @@
     "lord": ".dist/index.js"
   },
   "scripts": {
+    "check": "npm whoami && npm pack --dry-run",
     "build": "tsc --outDir ./.dist index.ts",
-    "npm-login-check": "npm whoami",
     "git-patch": "npm version patch",
     "git-minor": "npm version minor",
     "git-major": "npm version major",
-    "publish": "npm publish",
-    "publish-check": "npm pack --dry-run",
-    "git-push": "git push origin master --tags",
-    "check": "run-s build npm-login-check publish-check",
-    "patch": "run-s check git-patch git-push publish",
-    "minor": "run-s check git-minor git-push publish",
-    "major": "run-s check git-major git-push publish"
+    "push": "git push origin master --tags && npm publish",
+    "patch": "run-s check build git-patch push",
+    "minor": "run-s check build git-minor push",
+    "major": "run-s check build git-major push"
   },
   "author": "Jaspreet Singh <dev@jas.bio>",
   "license": "ISC",
