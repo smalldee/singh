@@ -19,7 +19,7 @@
         "push": "git push origin master --tags && npm publish"
     },
     "author": "Jaspreet Singh <dev@jas.bio>",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@jas99/tslint-config": "^0.1.5",
         "@types/fs-extra": "^5.0.4",
