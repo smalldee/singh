@@ -2,6 +2,7 @@
     "name": "lordofapps",
     "version": "0.1.2",
     "description": "Global wrapper for app packages",
+    "homepage": "https://github.com/lordofapps/lordofapps",
     "bin": {
         "lord": "index.js"
     },
