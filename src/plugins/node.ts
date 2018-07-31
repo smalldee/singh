@@ -51,9 +51,8 @@ export class Node extends Minister
 
     async listLocalObjects (): Promise<StoreObject[]>
     {
-        const prefix = await cmd( `npm prefix -g` );
-        const globalPath = join( prefix.trim(), 'lib', 'node_modules' );
-        const packageList = ls( globalPath );
+        const rootPath = ( await cmd( `npm root -g` ) ).trim();
+        const packageList = ls( rootPath );
         const objs: StoreObject[] = [];
         packageList
             .map(
@@ -61,7 +60,7 @@ export class Node extends Minister
                 {
                     const packageJson = readJsonSync(
                         join(
-                            globalPath,
+                            rootPath,
                             packageName,
                             'package.json'
                         )
