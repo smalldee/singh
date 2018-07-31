@@ -1,6 +1,6 @@
 {
     "name": "lordofapps",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Global wrapper for app packages",
     "homepage": "https://github.com/lordofapps/lordofapps",
     "bin": {
