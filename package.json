@@ -6,7 +6,7 @@
         "lord": "index.js"
     },
     "scripts": {
-        "dev": "npx parcel watch -d .dist -t node src/index.ts",
+        "dev": "parcel watch -d .dist -t node src/index.ts",
         "dist": "NODE_ENV=production run-s dev",
         "patch": "run-s check clean dist git-patch push",
         "minor": "run-s check clean dist git-minor push",
