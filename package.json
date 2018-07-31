@@ -1,6 +1,6 @@
 {
     "name": "lordofapps",
-    "version": "0.0.6",
+    "version": "0.1.0",
     "description": "Global wrapper for app packages",
     "bin": {
         "lord": "index.js"
