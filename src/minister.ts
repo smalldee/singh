@@ -17,7 +17,7 @@ interface IData
 export abstract class Minister
 {
     abstract dependancies: Minister[];
-    abstract exist (): Promise<boolean>;
+    // abstract exist (): Promise<boolean>;
     abstract version (): Promise<string>;
     abstract install ( objs: StoreObject[] ): Promise<string | undefined>;
     abstract uninstall ( objs: StoreObject[] ): Promise<string | undefined>;

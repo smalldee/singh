@@ -12,11 +12,14 @@ export class Node extends Minister
     private constructor () { super(); }
     static getInstance ()
     {
-        if ( !Node.instance )
-        {
-            Node.instance = new Node();
-        }
+        if ( !this.exist() ) return;
+        if ( !Node.instance ) Node.instance = new Node();
         return Node.instance;
+    }
+
+    static exist (): boolean
+    {
+        return !!which( `npm` );
     }
 
     dependancies: Minister[] = [];
@@ -37,11 +40,6 @@ export class Node extends Minister
         await Promise.all( objs.map( obj => uninstallList += `${ obj.id } ` ) );
         if ( uninstallList )
             return cmdCon( `npm remove -g ${ uninstallList } ` );
-    }
-
-    async exist (): Promise<boolean>
-    {
-        return !which( `npm` );
     }
 
     async version (): Promise<string>

@@ -1,7 +1,7 @@
-import * as shell from 'shelljs';
 import { Minister } from 'minister';
 import { StoreObject } from 'store_object';
 import { cmd, cmdCon } from 'utils';
+import { which } from 'shelljs';
 
 export class Mas extends Minister
 {
@@ -9,22 +9,18 @@ export class Mas extends Minister
     private constructor () { super(); }
     static getInstance ()
     {
-        if ( !Mas.instance )
-        {
-            Mas.instance = new Mas();
-        }
+        if ( !this.exist ) return;
+        if ( !Mas.instance ) Mas.instance = new Mas();
         return Mas.instance;
+    }
+    static exist (): boolean
+    {
+        return !!which( `mas` );
     }
 
     dependancies: Minister[] = [];
 
     getName () { return "Mas" }
-
-    async exist (): Promise<boolean>
-    {
-        return shell.which( `mas` ) != undefined;
-    }
-
 
     async install ( objs: StoreObject[] ): Promise<string | undefined>
     {

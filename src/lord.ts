@@ -14,7 +14,7 @@ export class Lord
     private constructor ()
     {
         // Check Available ministers
-        this.ministers = this.ministers.filter( minister => minister.exist() );
+        this.ministers = this.ministers.filter( minister => minister );
         console.log( `Found Ministers: ${ Array.from( this.ministers, minister => minister.getName() ).join( ', ' ) }` );
     }
     static getInstance ()

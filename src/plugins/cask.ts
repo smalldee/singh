@@ -1,21 +1,29 @@
-import * as shell from 'shelljs';
 import { Minister } from 'minister';
 import { StoreObject } from 'store_object';
 import { cmd, cmdCon } from 'utils';
 import { Tap } from 'plugins/tap';
+import { which, exec } from 'shelljs';
 
 export class Cask extends Minister
 {
 
     private static instance: Cask;
     private constructor () { super(); }
+
     static getInstance ()
     {
-        if ( !Cask.instance )
-        {
-            Cask.instance = new Cask();
-        }
+        if ( !this.exist() ) return;
+        if ( !Cask.instance ) Cask.instance = new Cask();
         return Cask.instance;
+    }
+
+    static exist (): boolean
+    {
+        if ( which( `brew` ) )
+        {
+            return !exec( `brew cask`, { silent: true } ).stderr;
+        }
+        return false;
     }
 
     dependancies: Minister[] = [ Tap.getInstance() ];
@@ -38,14 +46,6 @@ export class Cask extends Minister
             return cmdCon( `HOMEBREW_NO_AUTO_UPDATE=1 brew cask remove ${ uninstallList } ` );
     }
 
-    async exist (): Promise<boolean>
-    {
-        if ( shell.which( `brew` ) )
-        {
-            return !shell.exec( `brew cask`, { silent: true } ).stderr;
-        }
-        return false;
-    }
 
     version (): Promise<string>
     {
