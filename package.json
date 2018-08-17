@@ -1,6 +1,6 @@
 {
     "name": "singh",
-    "version": "0.1.7",
+    "version": "0.1.8",
     "description": "Global wrapper for app packages",
     "homepage": "https://github.com/jas99/singh",
     "bin": {
