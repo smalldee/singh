@@ -1,10 +1,10 @@
 {
-    "name": "lordofapps",
+    "name": "singh",
     "version": "0.1.7",
     "description": "Global wrapper for app packages",
-    "homepage": "https://github.com/lordofapps/lordofapps",
+    "homepage": "https://github.com/jas99/singh",
     "bin": {
-        "lord": "index.js"
+        "singh": "index.js"
     },
     "scripts": {
         "inspect": "node --inspect dev.js",
