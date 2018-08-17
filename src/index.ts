@@ -5,7 +5,7 @@ import yargs from 'yargs';
 import { Lord } from 'lord';
 import { printTitle } from 'utils';
 
-printTitle( 'Lord of Apps' );
+printTitle( 'Singh' );
 
 async function main ()
 {
